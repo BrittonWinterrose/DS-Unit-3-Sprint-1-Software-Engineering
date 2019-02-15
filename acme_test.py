@@ -36,7 +36,20 @@ class AcmeReportTests(unittest.TestCase):
     def test_default_num_products(self):
         """Check if it gets list len 30"""
         test_list = generate_products()
-        self.assertEqual(len(test_list), 30, msg="Length is good")
+        self.assertEqual(len(test_list), 30, msg="Length is Bad")
+    
+    def test_legal_names(self):
+        """Make sure the names are legal"""
+        test_list = generate_products()
+        names_list = []
+        for i in test_list:
+            names_list.append(i[0])
+        for name in names_list:
+            nameparts = name.split()
+            the_adj = nameparts[0]
+            self.assertIn(the_adj, ADJECTIVES, msg='Bad Adj')
+            the_noun = nameparts[1]
+            self.assertIn(the_noun, NOUNS, msg='Bad Noun')
 
 if __name__ == '__main__':
     unittest.main()
