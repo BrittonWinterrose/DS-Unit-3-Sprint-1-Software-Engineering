@@ -30,5 +30,13 @@ class AcmeProductTests(unittest.TestCase):
         self.assertEqual(prod.flammability, 0.7)
         self.assertEqual(prod.explode(), '...boom!')
 
+
+class AcmeReportTests(unittest.TestCase):
+    """Keeping those ACME Reports functional!"""
+    def test_default_num_products(self):
+        """Check if it gets list len 30"""
+        test_list = generate_products()
+        self.assertEqual(len(test_list), 30, msg="Length is good")
+
 if __name__ == '__main__':
     unittest.main()
