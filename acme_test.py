@@ -37,7 +37,7 @@ class AcmeReportTests(unittest.TestCase):
         """Check if it gets list len 30"""
         test_list = generate_products()
         self.assertEqual(len(test_list), 30, msg="Length is Bad")
-    
+
     def test_legal_names(self):
         """Make sure the names are legal"""
         test_list = generate_products()
