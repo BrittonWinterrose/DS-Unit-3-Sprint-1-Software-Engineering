@@ -46,6 +46,8 @@ class AcmeReportTests(unittest.TestCase):
             names_list.append(i[0])
         for name in names_list:
             nameparts = name.split()
+            self.assertEqual(len(nameparts), 2,
+                             msg="missing noun, space, or adj")
             the_adj = nameparts[0]
             self.assertIn(the_adj, ADJECTIVES, msg='Bad Adj')
             the_noun = nameparts[1]
